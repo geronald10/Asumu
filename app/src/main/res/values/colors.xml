@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#ff4081</color>
+
+    <color name="warnaUtamaMerah">#f44336</color>
+    <color name="warnaUtamaHijau">#009688</color>
+
+    <color name="black_overlay">#66000000</color>
+    <color name="textPutih">#FFFFFF</color>
+    <color name="textHitam">#212121</color>
+    <color name="backgroundAbu">#dbdbdb</color>
+    <color name="AbuTua">#787878</color>
+</resources>

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="net.ridhoperdana.asumu.halaman_login.LoginActivity">
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:background="@color/warnaUtamaHijau"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        android:id="@+id/view" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="5dp"
+        android:background="@drawable/shadow"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:src="@mipmap/logo_bukahobi"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintTop_toTopOf="@+id/view"
+        android:layout_marginTop="8dp"
+        app:layout_constraintVertical_bias="0.221" />
+
+    <ImageView
+        android:id="@+id/logo_border"
+        android:layout_width="98dp"
+        android:layout_height="37dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:srcCompat="@drawable/border_putih"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        fontPath="fonts/Roboto-Light.ttf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="BukaHobi"
+        android:textColor="@color/textPutih"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="@+id/logo_border"
+        app:layout_constraintRight_toRightOf="@+id/logo_border"
+        app:layout_constraintTop_toTopOf="@+id/logo_border"
+        tools:ignore="MissingPrefix"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
+
+    <EditText
+        android:id="@+id/masukkan_username"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Username"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        app:layout_constraintVertical_bias="0.188"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline"
+        app:layout_constraintRight_toLeftOf="@+id/guideline2"
+        android:layout_marginRight="8dp"
+        android:inputType="text"
+        app:layout_constraintHorizontal_bias="1.0" />
+
+    <EditText
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/masukkan_username"
+        app:layout_constraintRight_toLeftOf="@+id/guideline2"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintVertical_bias="0.0"
+        android:inputType="textPassword"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:id="@+id/editText" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.09"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="35dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="34dp"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="350dp" />
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="MASUK"
+        android:backgroundTint="@color/warnaUtamaMerah"
+        android:textColor="@color/textPutih"
+        app:layout_constraintTop_toBottomOf="@+id/editText"
+        app:layout_constraintRight_toLeftOf="@+id/guideline2"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintVertical_bias="0.132"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:id="@+id/tombolMasukAplikasi" />
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="GUNAKAN AKUN LAIN"
+        android:textColor="@color/textPutih"
+        android:backgroundTint="@color/warnaUtamaHijau"
+        android:layout_marginTop="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/tombolMasukAplikasi"
+        android:layout_marginRight="0dp"
+        android:layout_marginLeft="0dp"
+        app:layout_constraintLeft_toLeftOf="@+id/tombolMasukAplikasi"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintRight_toRightOf="@+id/tombolMasukAplikasi"
+        app:layout_constraintVertical_bias="0.0" />
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,107 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundAbu"
+    tools:context="net.ridhoperdana.asumu.halaman_login.LoginSplashScreenActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@mipmap/logo_bukahobi"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.22000003" />
+
+    <ImageView
+        android:id="@+id/logo_border"
+        android:layout_width="98dp"
+        android:layout_height="37dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:srcCompat="@drawable/border_merah" />
+
+    <TextView
+        android:id="@+id/textView"
+        fontPath="fonts/Roboto-Light.ttf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="BukaHobi"
+        android:textColor="@color/warnaUtamaMerah"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="@+id/logo_border"
+        app:layout_constraintRight_toRightOf="@+id/logo_border"
+        app:layout_constraintTop_toTopOf="@+id/logo_border"
+        tools:ignore="MissingPrefix" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <Button
+        android:id="@+id/tombolMasuk"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="64dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/warnaUtamaMerah"
+        android:text="MASUK"
+        android:textColor="@color/textPutih"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/logo_border" />
+
+    <Button
+        android:id="@+id/tombolDaftar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="64dp"
+        android:layout_marginTop="24dp"
+        android:text="DAFTAR"
+        android:textColor="@color/warnaUtamaMerah"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo_border" />
+
+    <Button
+        android:id="@+id/tombolPenjelasan"
+        android:layout_width="0dp"
+        android:layout_height="46dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="0dp"
+        android:backgroundTint="@color/warnaUtamaMerah"
+        android:text="APA ITU BukaHobi?"
+        android:textColor="@color/textPutih"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="@+id/tombolMasuk"
+        app:layout_constraintRight_toRightOf="@+id/tombolDaftar"
+        app:layout_constraintTop_toBottomOf="@+id/tombolDaftar"
+        app:layout_constraintVertical_bias="0.0" />
+
+</android.support.constraint.ConstraintLayout>
