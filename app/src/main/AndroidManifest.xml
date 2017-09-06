@@ -9,16 +9,21 @@
         android:roundIcon="@mipmap/logo_bukahobi"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="net.ridhoperdana.asumu.halaman_home.HomeActivity" />
-        <activity
-            android:name="net.ridhoperdana.asumu.halaman_login.LoginSplashScreenActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:theme="@style/FullscreenTheme">
+
+        <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity android:name="net.ridhoperdana.asumu.halaman_home.HomeActivity"/>
+        <activity
+            android:name="net.ridhoperdana.asumu.halaman_login.LoginSplashScreenActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/FullscreenTheme">
+
         </activity>
         <activity android:name="net.ridhoperdana.asumu.halaman_login.LoginActivity" />
         <activity
@@ -28,8 +33,9 @@
             android:name="net.ridhoperdana.asumu.MessageActivity"
             android:label="Daftar Pesan" />
         <activity android:name="net.ridhoperdana.asumu.BaseActivity" />
-        <activity android:name="net.ridhoperdana.asumu.ProfilActivity"
-            android:label="Profil Pengguna"/>
+        <activity
+            android:name="net.ridhoperdana.asumu.ProfilActivity"
+            android:label="Profil Pengguna" />
     </application>
 
 </manifest>
