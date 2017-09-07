@@ -6,12 +6,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.Collections;
+import java.util.List;
+
 /**
  * Created by RIDHO on 9/7/2017.
  */
 
 public class AdapterListHistory extends RecyclerView.Adapter<ViewHolderListHistory>{
 
+    List<ListofTarget> list = Collections.emptyList();
     Context context;
 
     @Override
@@ -23,15 +27,20 @@ public class AdapterListHistory extends RecyclerView.Adapter<ViewHolderListHisto
 
     @Override
     public void onBindViewHolder(ViewHolderListHistory holder, int position) {
-
+        ListofTarget listofTarget = list.get(position);
+        holder.titleTarget.setText(listofTarget.getTargetTitle());
+        holder.statusTarget.setText(listofTarget.getTargetStatus());
+        holder.savingTarget.setText(listofTarget.getTargetAmount());
+        holder.imageTarget.setImageResource(R.drawable.community);
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return list.size();
     }
 
-    public AdapterListHistory(Context context) {
+    public AdapterListHistory(List<ListofTarget> list, Context context) {
+        this.list = list;
         this.context = context;
     }
 }
