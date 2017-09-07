@@ -2,21 +2,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragment.ItemHomeFragment">
 
     <ImageView
-        android:id="@+id/home_image"
+        android:id="@+id/imgPreview"
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:layout_centerInParent="true"
-        android:src="@drawable/ic_home"/>
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" />
+
+    <ImageView
+        android:id="@+id/imgNoPreview"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        app:srcCompat="@drawable/no_image_available"
+        android:layout_below="@+id/btnCapturePicture"
+        android:layout_alignStart="@+id/imgPreview" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/home_image"
+        android:layout_below="@+id/imgPreview"
         android:layout_centerHorizontal="true"
         android:text="Fragment Home"
-        android:textSize="30sp"/>
+        android:textSize="30sp" />
+
+    <!-- Capture picture button -->
+    <Button
+        android:id="@+id/btnCapturePicture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imgPreview"
+        android:layout_centerHorizontal="true"
+        android:text="Take a Picture" />
 
 </RelativeLayout>
