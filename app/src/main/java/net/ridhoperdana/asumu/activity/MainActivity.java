@@ -222,8 +222,6 @@ public class MainActivity extends AppCompatActivity {
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-
-
                         pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
@@ -251,12 +249,11 @@ public class MainActivity extends AppCompatActivity {
             pDialog.dismiss();
             new SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE)
                     .setTitleText("Success!")
-                    .setContentText("Account was successfully created")
+                    .setContentText("Income is updated successfully")
                     .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
                         @Override
                         public void onClick(SweetAlertDialog sweetAlertDialog) {
                             sweetAlertDialog.dismissWithAnimation();
-                            finish();
                         }
                     })
                     .show();
