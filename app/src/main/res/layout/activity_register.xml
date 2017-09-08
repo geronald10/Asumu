@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="24dp"
         android:layout_marginRight="24dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="32dp"
         android:textColorHint="@android:color/white"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -29,13 +29,13 @@
             android:layout_height="wrap_content"
             android:hint="@string/username_prompt_label"
             android:imeOptions="actionNext"
-            android:inputType="textEmailAddress"
+            android:inputType="textPersonName"
             android:textColor="@android:color/white" />
 
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/layout_email_login"
+        android:id="@+id/layout_email_register"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="24dp"
@@ -47,7 +47,7 @@
         app:layout_constraintTop_toBottomOf="@+id/layout_user_nama">
 
         <AutoCompleteTextView
-            android:id="@+id/edt_email_login"
+            android:id="@+id/edt_email_register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/email_nrp_prompt_label"
@@ -58,7 +58,7 @@
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/layout_password_login"
+        android:id="@+id/layout_password_register"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="24dp"
@@ -67,10 +67,10 @@
         android:textColorHint="@android:color/white"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/layout_email_login">
+        app:layout_constraintTop_toBottomOf="@id/layout_email_register">
 
         <EditText
-            android:id="@+id/edt_password_login"
+            android:id="@+id/edt_password_register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/password_prompt_label"
@@ -81,7 +81,7 @@
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/layout_confirm_password_login"
+        android:id="@+id/layout_confirm_password_register"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="24dp"
@@ -90,10 +90,10 @@
         android:textColorHint="@android:color/white"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/layout_password_login">
+        app:layout_constraintTop_toBottomOf="@id/layout_password_register">
 
         <EditText
-            android:id="@+id/edt_confirm_password_login"
+            android:id="@+id/edt_confirm_password_register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/confirm_password_prompt_label"
@@ -104,12 +104,13 @@
     </android.support.design.widget.TextInputLayout>
 
     <Button
+        android:id="@+id/btnRegister"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@android:color/white"
         android:text="@string/register_button_label"
-        android:textColor="@color/colorPrimaryText"
         android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:textColor="@color/colorPrimaryText"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />

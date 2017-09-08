@@ -41,13 +41,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        TextView title = (TextView) mToolbar.findViewById(R.id.toolbarTitle);
-        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/Poppins-Medium.ttf");
-        title.setTypeface(typeface);
-        title.setText(R.string.app_name);
-        setSupportActionBar(mToolbar);
-
         BottomNavigationView bottomNavigationView = (BottomNavigationView)
                 findViewById(R.id.navigation);
         BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);

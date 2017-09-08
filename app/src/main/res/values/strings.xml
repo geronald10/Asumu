@@ -32,5 +32,11 @@
     <string name="confirm_password_prompt_label">Confirm Password</string>
     <string name="register_button_label">Register</string>
     <string name="username_prompt_label">User Name</string>
+    <string name="error_msg_nama">username can\'t be null</string>
+    <string name="error_msg_password">password can\'t be null</string>
+    <string name="error_msg_konfirm_password">confirm password can\'t be null</string>
+    <string name="error_msg_konfirm_password_2">confirm password isn\'t match</string>
+    <string name="error_msg_email">email can\'t be null</string>
+    <string name="error_msg_email2">ensure you have entered email format correctly</string>
 
 </resources>

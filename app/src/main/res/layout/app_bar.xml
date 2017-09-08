@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -13,7 +14,17 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:textSize="28sp"
+        android:visibility="gone"
         android:layout_marginEnd="16dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionMode.Title"/>
+
+    <ImageView
+        android:id="@+id/iv_logo_toolbar"
+        android:layout_width="150dp"
+        android:layout_height="?actionBarSize"
+        android:paddingTop="8dp"
+        android:paddingBottom="16dp"
+        android:layout_marginEnd="16dp"
+        app:srcCompat="@drawable/logo_asumu_white"/>
 
 </android.support.v7.widget.Toolbar>
