@@ -45,8 +45,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.AddNewTargetActivity"></activity>
-        <activity android:name=".HistoryDetailActivity"></activity>
+        <activity android:name=".activity.AddNewTargetActivity" />
+        <activity android:name=".HistoryDetailActivity" />
+        <activity android:name=".ManageExpenseActivity"></activity>
     </application>
 
 </manifest>

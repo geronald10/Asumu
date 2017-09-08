@@ -23,6 +23,7 @@ import com.android.volley.toolbox.StringRequest;
 import net.ridhoperdana.asumu.AdapterListHistory;
 import net.ridhoperdana.asumu.HistoryDetailActivity;
 import net.ridhoperdana.asumu.ListofTargetModel;
+import net.ridhoperdana.asumu.ManageExpenseActivity;
 import net.ridhoperdana.asumu.activity.AddNewTargetActivity;
 import net.ridhoperdana.asumu.R;
 import net.ridhoperdana.asumu.utility.AsumuSessionManager;
@@ -117,7 +118,7 @@ public class ItemHomeFragment extends Fragment implements View.OnClickListener{
                                 public void onClick(ListofTargetModel listofTargetModel) {
                                     Bundle bundle = new Bundle();
                                     //        bundle.putString("coba", listofTargetModel.);
-                                    Intent intent = new Intent(getActivity(), HistoryDetailActivity.class);
+                                    Intent intent = new Intent(getActivity(), ManageExpenseActivity.class);
                                     startActivity(intent);
                                 }
                             });
