@@ -1,20 +1,12 @@
 package net.ridhoperdana.asumu.activity;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Color;
-import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -50,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
     private Context mContext;
     private EditText edtEmail;
     private EditText edtPassword;
-    private Button btnSignIn;
+    private Button btnSignIn, btnRegister;
     private SweetAlertDialog pDialog;
     private AsumuSessionManager session;
 
@@ -64,6 +56,7 @@ public class LoginActivity extends AppCompatActivity {
         edtEmail = (EditText) findViewById(R.id.edt_email_login);
         edtPassword = (EditText) findViewById(R.id.edt_password_login);
         btnSignIn = (Button) findViewById(R.id.btn_sign_in);
+        btnRegister = (Button) findViewById(R.id.btn_register);
 
         // Session manager
         session = new AsumuSessionManager(mContext);
@@ -77,6 +70,7 @@ public class LoginActivity extends AppCompatActivity {
 
         if (checkPlayServices()) {
             btnSignIn.setOnClickListener(operation);
+            btnRegister.setOnClickListener(operation);
         }
     }
 
@@ -94,6 +88,10 @@ public class LoginActivity extends AppCompatActivity {
                     } else {
                         Toast.makeText(getApplicationContext(), "Please enter the credentials!", Toast.LENGTH_LONG).show();
                     }
+                    break;
+                case R.id.btn_register:
+                    Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                    startActivity(intent);
                     break;
             }
         }

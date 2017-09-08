@@ -32,31 +32,30 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="0dp"
             android:gravity="center"
             android:text="@string/welcome_message_2"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             android:textColor="@android:color/white"
-            app:layout_constraintHorizontal_bias="0.509"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_welcome_message" />
+            app:layout_constraintLeft_toLeftOf="@+id/iv_logo_sikemas"
+            app:layout_constraintRight_toRightOf="@+id/iv_logo_sikemas"
+            app:layout_constraintTop_toBottomOf="@+id/iv_logo_sikemas" />
 
         <ImageView
             android:id="@+id/iv_logo_sikemas"
-            android:layout_width="164dp"
-            android:layout_height="120dp"
-            android:layout_marginTop="24dp"
+            android:layout_width="250dp"
+            android:layout_height="112dp"
+            android:layout_marginTop="0dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_welcome_message_2"
-            app:srcCompat="@mipmap/ic_launcher" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_welcome_message"
+            app:srcCompat="@drawable/logo_asumu_white" />
 
         <TextView
             android:id="@+id/tv_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="24dp"
             android:gravity="center_horizontal|center_vertical"
             android:paddingEnd="8dp"
             android:paddingStart="8dp"
@@ -64,9 +63,10 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             android:textColor="@android:color/white"
             android:textSize="36sp"
+            app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iv_logo_sikemas" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_welcome_message_2" />
 
         <ImageView
             android:id="@+id/iv_line_2"
@@ -82,10 +82,12 @@
             android:id="@+id/layout_email_login"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
             android:layout_marginTop="20dp"
             android:textColorHint="@android:color/white"
-            app:layout_constraintLeft_toLeftOf="@+id/tv_welcome_message"
-            app:layout_constraintRight_toRightOf="@+id/tv_welcome_message"
+            app:layout_constraintLeft_toLeftOf="@+id/btn_register"
+            app:layout_constraintRight_toRightOf="@+id/btn_register"
             app:layout_constraintTop_toBottomOf="@+id/iv_line_2">
 
             <AutoCompleteTextView
@@ -103,9 +105,11 @@
             android:id="@+id/layout_password_login"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
             android:textColorHint="@android:color/white"
-            app:layout_constraintLeft_toLeftOf="@id/tv_welcome_message"
-            app:layout_constraintRight_toRightOf="@id/tv_welcome_message"
+            app:layout_constraintLeft_toLeftOf="@+id/btn_register"
+            app:layout_constraintRight_toRightOf="@+id/btn_register"
             app:layout_constraintTop_toBottomOf="@id/layout_email_login">
 
             <EditText
@@ -123,27 +127,27 @@
             android:id="@+id/btn_sign_in"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
             android:layout_marginTop="16dp"
             android:text="@string/sign_in_button"
             android:textAppearance="@style/TextAppearance.AppCompat.Button"
             android:textColor="@android:color/white"
             android:textSize="16sp"
-            app:layout_constraintLeft_toLeftOf="@id/tv_welcome_message"
-            app:layout_constraintRight_toRightOf="@id/tv_welcome_message"
-            app:layout_constraintTop_toBottomOf="@id/layout_password_login"
-            app:layout_constraintHorizontal_bias="0.0" />
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="@+id/btn_register"
+            app:layout_constraintRight_toRightOf="@+id/btn_register"
+            app:layout_constraintTop_toBottomOf="@id/layout_password_login" />
 
         <Button
+            android:id="@+id/btn_register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/white"
             android:background="@android:color/transparent"
-            android:text="don't have account? Register here"
-            android:layout_marginRight="8dp"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginLeft="8dp"
+            android:text="@string/register_direct_string"
+            android:textColor="@android:color/white"
             app:layout_constraintLeft_toLeftOf="parent"
-            android:layout_marginTop="-8dp"
+            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_sign_in" />
 
     </android.support.constraint.ConstraintLayout>
