@@ -1,6 +1,8 @@
 package net.ridhoperdana.asumu.activity;
 
+import android.content.DialogInterface;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
@@ -10,12 +12,22 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 
 import net.ridhoperdana.asumu.R;
 import net.ridhoperdana.asumu.fragment.ItemAccountFragment;
@@ -23,10 +35,26 @@ import net.ridhoperdana.asumu.fragment.ItemAchievementFragment;
 import net.ridhoperdana.asumu.fragment.ItemHistoryFragment;
 import net.ridhoperdana.asumu.fragment.ItemHomeFragment;
 import net.ridhoperdana.asumu.helper.BottomNavigationViewHelper;
+import net.ridhoperdana.asumu.utility.AsumuSessionManager;
+import net.ridhoperdana.asumu.utility.NetworkUtils;
+import net.ridhoperdana.asumu.utility.VolleySingleton;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final int PERMISSION_REQUEST_CODE = 1;
+    private SweetAlertDialog pDialog;
+    AsumuSessionManager sessionManager;
+    public String penghasilan = null;
+    HashMap<String, String> user;
+    EditText inputPenghasilan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +68,12 @@ public class MainActivity extends AppCompatActivity {
                 requestPermission();
             }
         }
+
+        sessionManager = new AsumuSessionManager(this);
+
+
+        user = sessionManager.getUserDetails();
+        getUserDetail(user.get("user_name"));
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView)
                 findViewById(R.id.navigation);
@@ -113,6 +147,136 @@ public class MainActivity extends AppCompatActivity {
                             "Permission denied", Toast.LENGTH_LONG).show();
                 }
                 break;
+        }
+    }
+
+    private void updateIncome(final String username, final String income) {
+        showLoading();
+        StringRequest stringRequest = new StringRequest(Request.Method.POST,
+                NetworkUtils.UPDATE_PENGHASILAN,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        showSuccessResult();
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+//                Log.e(TAG, "Error: " + error.getMessage());
+                Toast.makeText(getApplicationContext(),
+                        error.getMessage(), Toast.LENGTH_LONG).show();
+                showErrorResult();
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("username", username);
+                params.put("penghasilan", income);
+
+                return params;
+            }
+        };
+        VolleySingleton.getmInstance(getApplicationContext()).addToRequestQueue(stringRequest);
+    }
+
+    private void getUserDetail(final String username) {
+        showLoading();
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET,
+                NetworkUtils.GET_USER_DETAIL+"?username="+username,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+//                        Log.d("response detail login: ", response.toString());
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            if(!jsonObject.getString("penghasilan").isEmpty())
+                            {
+                                penghasilan = jsonObject.getString("penghasilan");
+                                Log.d("penghasilan nol: ", jsonObject.getString("penghasilan"));
+                            }
+                            else
+                            {
+                                Log.d("penghasilan: ", jsonObject.getString("penghasilan"));
+                                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                                // Get the layout inflater
+                                LayoutInflater inflater = getLayoutInflater();
+                                final View view = inflater.inflate(R.layout.custom_dialog_input_penghasilan, null);
+                                builder.setView(view)
+                                        // Add action buttons
+                                        .setPositiveButton("Update", new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int id) {
+                                                inputPenghasilan = (EditText)view.findViewById(R.id.input_user_penghasilan);
+                                                updateIncome(user.get("user_name"), inputPenghasilan.getText().toString());
+                                            }
+                                        })
+                                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int id) {
+                                                dialog.cancel();
+                                            }
+                                        });
+                                builder.show();
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+
+                        pDialog.dismiss();
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+//                Log.e(TAG, "Error: " + error.getMessage());
+                Toast.makeText(getApplicationContext(),
+                        error.getMessage(), Toast.LENGTH_LONG).show();
+                showErrorResult();
+            }
+        });
+        VolleySingleton.getmInstance(getApplicationContext()).addToRequestQueue(stringRequest);
+    }
+
+    private void showLoading() {
+        pDialog = new SweetAlertDialog(this, SweetAlertDialog.PROGRESS_TYPE);
+        pDialog.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
+        pDialog.setTitleText("Loading");
+        pDialog.setCancelable(false);
+        pDialog.show();
+    }
+
+    private void showSuccessResult() {
+        if (pDialog.isShowing()) {
+            pDialog.dismiss();
+            new SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE)
+                    .setTitleText("Success!")
+                    .setContentText("Account was successfully created")
+                    .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                        @Override
+                        public void onClick(SweetAlertDialog sweetAlertDialog) {
+                            sweetAlertDialog.dismissWithAnimation();
+                            finish();
+                        }
+                    })
+                    .show();
+        }
+    }
+
+    private void showErrorResult() {
+        if (pDialog.isShowing()) {
+            pDialog.dismiss();
+            new SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
+                    .setTitleText("Failed!")
+                    .setContentText("Internal Server Error")
+                    .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                        @Override
+                        public void onClick(SweetAlertDialog sweetAlertDialog) {
+                            sweetAlertDialog.dismissWithAnimation();
+                            finish();
+                        }
+                    })
+                    .show();
         }
     }
 }

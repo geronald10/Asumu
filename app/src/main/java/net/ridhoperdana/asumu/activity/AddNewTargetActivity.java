@@ -45,7 +45,6 @@ public class AddNewTargetActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_target);
         inputStartDate = (EditText)findViewById(R.id.input_target_startdate);
-        TextInputLayout title = (TextInputLayout) findViewById(R.id.input_layout_target_title);
         final EditText titleInput = (EditText)findViewById(R.id.input_target_title);
         final EditText valueInput = (EditText)findViewById(R.id.input_target_value);
         final EditText endDateInput = (EditText)findViewById(R.id.input_target_enddate);
@@ -53,7 +52,6 @@ public class AddNewTargetActivity extends AppCompatActivity{
         sessionManager = new AsumuSessionManager(this);
         final HashMap<String, String> user;
         user = sessionManager.getUserDetails();
-        Log.d("username: ", user.get("user_name"));
 
         inputStartDate.setOnClickListener(new View.OnClickListener() {
             @Override
