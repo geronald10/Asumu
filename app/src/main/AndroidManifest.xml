@@ -47,6 +47,23 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.AddNewTargetActivity"></activity>
+        <activity android:name=".halaman_home.HomeActivity" />
+        <activity
+            android:name=".halaman_login.LoginSplashScreenActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/FullscreenTheme"></activity>
+        <activity android:name=".halaman_login.LoginActivity" />
+        <activity
+            android:name=".SearchActivity"
+            android:label="Cari Komunitas" />
+        <activity
+            android:name=".MessageActivity"
+            android:label="Daftar Pesan" />
+        <activity android:name=".BaseActivity" />
+        <activity
+            android:name=".ProfilActivity"
+            android:label="Profil Pengguna" />
+        <activity android:name=".HistoryDetailActivity"></activity>
     </application>
 
 </manifest>

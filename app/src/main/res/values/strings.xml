@@ -3,7 +3,9 @@
 
     <string name="title_activity_login_splash_screen">LoginSplashScreen</string>
     <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="target_title">Laptop Baru</string>
+    <string name="dummy_content">5.000.000</string>
+    <string name="target_remaining">7 days to go</string>
     <string name="item_1">Home</string>
     <string name="item_2">History</string>
     <string name="item_3">Achievement</string>
