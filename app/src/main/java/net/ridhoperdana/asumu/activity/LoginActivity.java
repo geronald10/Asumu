@@ -32,6 +32,7 @@ import net.ridhoperdana.asumu.utility.AsumuSessionManager;
 import net.ridhoperdana.asumu.utility.NetworkUtils;
 import net.ridhoperdana.asumu.utility.VolleySingleton;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -112,13 +113,17 @@ public class LoginActivity extends AppCompatActivity {
             public void onResponse(String response) {
                 Log.d(TAG, "Login Response: " + response);
                 try {
-                    JSONObject jsonObject = new JSONObject(response);
+                    JSONArray jsonArray = new JSONArray(response);
+                    JSONObject jsonObject = jsonArray.getJSONObject(0);
                     boolean status = jsonObject.getBoolean("status");
                     if (status) {
                         String email = jsonObject.getString("username");
                         String nameUser = jsonObject.getString("nama_user");
+
                         session.createLoginSession(nameUser, email);
                         showSuccessResult();
+                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        startActivity(intent);
                         finish();
                     } else {
                         showErrorNotFound();
