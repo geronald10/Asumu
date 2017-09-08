@@ -1,173 +1,154 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="net.ridhoperdana.asumu.halaman_login.LoginActivity">
+    android:background="@color/colorPrimary"
+    tools:context=".activity.LoginActivity">
 
-    <View
-        android:layout_width="0dp"
-        android:layout_height="200dp"
-        android:background="@color/warnaUtamaHijau"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        android:id="@+id/view" />
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <View
-        android:layout_width="0dp"
-        android:layout_height="5dp"
-        android:background="@drawable/shadow"
-        app:layout_constraintBottom_toBottomOf="@+id/view"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        <TextView
+            android:id="@+id/tv_welcome_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="@string/welcome_message_1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@android:color/white"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:src="@mipmap/logo_bukahobi"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="@+id/view"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintTop_toTopOf="@+id/view"
-        android:layout_marginTop="8dp"
-        app:layout_constraintVertical_bias="0.221" />
+        <TextView
+            android:id="@+id/tv_welcome_message_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="0dp"
+            android:gravity="center"
+            android:text="@string/welcome_message_2"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:textColor="@android:color/white"
+            app:layout_constraintLeft_toLeftOf="@+id/iv_logo_sikemas"
+            app:layout_constraintRight_toRightOf="@+id/iv_logo_sikemas"
+            app:layout_constraintTop_toBottomOf="@+id/iv_logo_sikemas" />
 
-    <ImageView
-        android:id="@+id/logo_border"
-        android:layout_width="98dp"
-        android:layout_height="37dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:background="@android:color/transparent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:srcCompat="@drawable/border_putih"
-        app:layout_constraintBottom_toBottomOf="@+id/view"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp" />
+        <ImageView
+            android:id="@+id/iv_logo_sikemas"
+            android:layout_width="250dp"
+            android:layout_height="112dp"
+            android:layout_marginTop="0dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_welcome_message"
+            app:srcCompat="@drawable/logo_asumu_white" />
 
-    <TextView
-        android:id="@+id/textView"
-        fontPath="fonts/Roboto-Light.ttf"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        android:gravity="center"
-        android:text="BukaHobi"
-        android:textColor="@color/textPutih"
-        android:textSize="18sp"
-        app:layout_constraintLeft_toLeftOf="@+id/logo_border"
-        app:layout_constraintRight_toRightOf="@+id/logo_border"
-        app:layout_constraintTop_toTopOf="@+id/logo_border"
-        tools:ignore="MissingPrefix"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp" />
+        <TextView
+            android:id="@+id/tv_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:paddingEnd="8dp"
+            android:paddingStart="8dp"
+            android:text="@string/login_title"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@android:color/white"
+            android:textSize="36sp"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_welcome_message_2" />
 
-    <EditText
-        android:id="@+id/masukkan_username"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="Username"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintTop_toBottomOf="@+id/view"
-        app:layout_constraintVertical_bias="0.188"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="@+id/guideline"
-        app:layout_constraintRight_toLeftOf="@+id/guideline2"
-        android:layout_marginRight="8dp"
-        android:inputType="text"
-        app:layout_constraintHorizontal_bias="1.0" />
+        <ImageView
+            android:id="@+id/iv_line_2"
+            android:layout_width="0dp"
+            android:layout_height="3dp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintLeft_toLeftOf="@+id/tv_login"
+            app:layout_constraintRight_toRightOf="@+id/tv_login"
+            app:layout_constraintTop_toBottomOf="@+id/tv_login"
+            app:srcCompat="@color/colorAccent" />
 
-    <EditText
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="Password"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/masukkan_username"
-        app:layout_constraintRight_toLeftOf="@+id/guideline2"
-        android:layout_marginRight="8dp"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="@+id/guideline"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintVertical_bias="0.0"
-        android:inputType="textPassword"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:id="@+id/editText" />
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/layout_email_login"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="20dp"
+            android:textColorHint="@android:color/white"
+            app:layout_constraintLeft_toLeftOf="@+id/btn_register"
+            app:layout_constraintRight_toRightOf="@+id/btn_register"
+            app:layout_constraintTop_toBottomOf="@+id/iv_line_2">
 
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.09"
-        tools:layout_editor_absoluteY="0dp"
-        tools:layout_editor_absoluteX="35dp" />
+            <AutoCompleteTextView
+                android:id="@+id/edt_email_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/email_nrp_prompt_label"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress"
+                android:textColor="@android:color/white" />
 
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="34dp"
-        tools:layout_editor_absoluteY="0dp"
-        tools:layout_editor_absoluteX="350dp" />
+        </android.support.design.widget.TextInputLayout>
 
-    <Button
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="MASUK"
-        android:backgroundTint="@color/warnaUtamaMerah"
-        android:textColor="@color/textPutih"
-        app:layout_constraintTop_toBottomOf="@+id/editText"
-        app:layout_constraintRight_toLeftOf="@+id/guideline2"
-        android:layout_marginRight="8dp"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="@+id/guideline"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintVertical_bias="0.132"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:id="@+id/tombolMasukAplikasi" />
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/layout_password_login"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:textColorHint="@android:color/white"
+            app:layout_constraintLeft_toLeftOf="@+id/btn_register"
+            app:layout_constraintRight_toRightOf="@+id/btn_register"
+            app:layout_constraintTop_toBottomOf="@id/layout_email_login">
 
-    <Button
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="GUNAKAN AKUN LAIN"
-        android:textColor="@color/textPutih"
-        android:backgroundTint="@color/warnaUtamaHijau"
-        android:layout_marginTop="0dp"
-        app:layout_constraintTop_toBottomOf="@+id/tombolMasukAplikasi"
-        android:layout_marginRight="0dp"
-        android:layout_marginLeft="0dp"
-        app:layout_constraintLeft_toLeftOf="@+id/tombolMasukAplikasi"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintRight_toRightOf="@+id/tombolMasukAplikasi"
-        app:layout_constraintVertical_bias="0.0" />
+            <EditText
+                android:id="@+id/edt_password_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/password_prompt_label"
+                android:imeOptions="actionDone"
+                android:inputType="textPassword"
+                android:textColor="@android:color/white" />
 
-</android.support.constraint.ConstraintLayout>
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/btn_sign_in"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/sign_in_button"
+            android:textAppearance="@style/TextAppearance.AppCompat.Button"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="@+id/btn_register"
+            app:layout_constraintRight_toRightOf="@+id/btn_register"
+            app:layout_constraintTop_toBottomOf="@id/layout_password_login" />
+
+        <Button
+            android:id="@+id/btn_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:text="@string/register_direct_string"
+            android:textColor="@android:color/white"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_sign_in" />
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

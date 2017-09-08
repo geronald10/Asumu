@@ -8,7 +8,29 @@
     <string name="item_2">History</string>
     <string name="item_3">Achievement</string>
     <string name="item_4">Account</string>
+    <string name="title_activity_login">Sign in</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="login_title">Sign in</string>
+    <string name="email_nrp_prompt_label">Email</string>
+    <string name="password_prompt_label">Password</string>
+    <string name="welcome_message_1">Welcome to</string>
+    <string name="welcome_message_2">"Asisten Keuanganmu"</string>
+    <string name="sign_in_button">Sign in</string>
+    <string name="register_direct_string">don\'t have account? Register here</string>
+    <string name="confirm_password_prompt_label">Confirm Password</string>
+    <string name="register_button_label">Register</string>
+    <string name="username_prompt_label">User Name</string>
+
 </resources>
