@@ -1,76 +1,68 @@
 package net.ridhoperdana.asumu;
 
-import android.graphics.Bitmap;
-
 /**
  * Created by RIDHO on 9/7/2017.
  */
 
 public class ListofTargetModel {
-    String targetTitle;
+    String target_desc;
     String targetImageUrl;
-    String targetDescription;
-    String targetAmount;
-    String targetStartDate;
-    String targetDueDate;
-    String targetOffset;
-    String targetStatus;
-    String targetNormalExpense;
-    String targetId;
+    String target_amount;
+    String target_startdate;
+    String target_duedate;
+    String offset;
+    String status;
+    String normal_expense;
+    String id_target;
 
-    public ListofTargetModel(String targetTitle, String targetImageUrl, String targetDescription, String targetAmount, String targetStartDate, String targetDueDate, String targetOffset, String targetStatus, String targetId) {
-        this.targetTitle = targetTitle;
+    public ListofTargetModel(String target_desc, String targetImageUrl, String target_amount, String target_startdate, String target_duedate, String offset, String status, String id_target) {
+        this.target_desc = target_desc;
         this.targetImageUrl = targetImageUrl;
-        this.targetDescription = targetDescription;
-        this.targetAmount = targetAmount;
-        this.targetStartDate = targetStartDate;
-        this.targetDueDate = targetDueDate;
-        this.targetOffset = targetOffset;
-        this.targetStatus = targetStatus;
-        this.targetId = targetId;
+        this.target_amount = target_amount;
+        this.target_startdate = target_startdate;
+        this.target_duedate = target_duedate;
+        this.offset = offset;
+        this.status = status;
+        this.id_target = id_target;
     }
 
-    public void setTargetNormalExpense(String targetNormalExpense) {
-        this.targetNormalExpense = targetNormalExpense;
+    public void setNormal_expense(String normal_expense) {
+        this.normal_expense = normal_expense;
     }
 
-    public String getTargetTitle() {
-        return targetTitle;
+    public String getTarget_desc() {
+        return target_desc;
     }
 
     public String getTargetImageUrl() {
         return targetImageUrl;
     }
 
-    public String getTargetDescription() {
-        return targetDescription;
+    public String getTarget_amount() {
+        return target_amount;
     }
 
-    public String getTargetAmount() {
-        return targetAmount;
+    public String getTarget_startdate() {
+        return target_startdate;
     }
 
-    public String getTargetStartDate() {
-        return targetStartDate;
+    public String getTarget_duedate() {
+        return target_duedate;
     }
 
-    public String getTargetDueDate() {
-        return targetDueDate;
+    public String getOffset() {
+        return offset;
     }
 
-    public String getTargetOffset() {
-        return targetOffset;
+    public String getStatus() {
+        return status;
     }
 
-    public String getTargetStatus() {
-        return targetStatus;
+    public String getNormal_expense() {
+        return normal_expense;
     }
 
-    public String getTargetNormalExpense() {
-        return targetNormalExpense;
-    }
-
-    public String getTargetId() {
-        return targetId;
+    public String getId_target() {
+        return id_target;
     }
 }

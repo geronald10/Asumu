@@ -53,7 +53,7 @@ public class ItemHistoryFragment extends Fragment implements AdapterListHistory.
         {
             harga_random = random.nextInt(max_harga - min_harga +1) + min_harga;
             nilai_random = random.nextInt(max - min +1) +min;
-            ListofTargetModel listofTargetModel = new ListofTargetModel("New Laptop", "xxxx", "Harus beli ini jangan lupa", String.valueOf(harga_random), "2017-8-30", "2017-12-30", "0", "Not Finished", String.valueOf(nilai_random));
+            ListofTargetModel listofTargetModel = new ListofTargetModel("New Laptop", "xxxx", String.valueOf(harga_random), "2017-8-30", "2017-12-30", "0", "Not Finished", String.valueOf(i));
             listofTargetModels.add(listofTargetModel);
         }
 

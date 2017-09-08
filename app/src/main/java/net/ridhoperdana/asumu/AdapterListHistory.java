@@ -38,9 +38,9 @@ public class AdapterListHistory extends RecyclerView.Adapter<AdapterListHistory.
     @Override
     public void onBindViewHolder(ViewHolderListHistory holder, int position) {
         ListofTargetModel listofTargetModel = list.get(position);
-        holder.titleTarget.setText(listofTargetModel.getTargetTitle());
-        holder.statusTarget.setText(listofTargetModel.getTargetStatus());
-        holder.savingTarget.setText(listofTargetModel.getTargetAmount());
+        holder.titleTarget.setText(listofTargetModel.getTarget_desc());
+        holder.statusTarget.setText(listofTargetModel.getStatus());
+        holder.savingTarget.setText(listofTargetModel.getTarget_amount());
         holder.imageTarget.setImageResource(R.drawable.community);
 
     }
