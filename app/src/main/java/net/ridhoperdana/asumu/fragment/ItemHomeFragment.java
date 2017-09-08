@@ -1,21 +1,15 @@
 package net.ridhoperdana.asumu.fragment;
 
-import android.app.DatePickerDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
-import android.text.format.Time;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.DatePicker;
-import android.widget.EditText;
 
-import net.ridhoperdana.asumu.AddNewTargetActivity;
+import net.ridhoperdana.asumu.activity.AddNewTargetActivity;
 import net.ridhoperdana.asumu.R;
 
 

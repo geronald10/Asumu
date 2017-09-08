@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="net.ridhoperdana.asumu.AddNewTargetActivity">
+    tools:context="net.ridhoperdana.asumu.activity.AddNewTargetActivity">
 
     <include
         android:id="@+id/toolbar"
@@ -90,5 +90,15 @@
             android:textSize="16sp"/>
 
     </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/input_layout_target_enddate"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="Add Target"
+        android:id="@+id/submit_new_target"/>
 
 </android.support.constraint.ConstraintLayout>

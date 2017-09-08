@@ -62,7 +62,7 @@
         <activity
             android:name=".ProfilActivity"
             android:label="Profil Pengguna" />
-        <activity android:name=".AddNewTargetActivity"></activity>
+        <activity android:name=".activity.AddNewTargetActivity"></activity>
     </application>
 
 </manifest>
