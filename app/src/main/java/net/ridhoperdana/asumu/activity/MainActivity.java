@@ -1,6 +1,5 @@
 package net.ridhoperdana.asumu.activity;
 
-import android.Manifest;
 import android.content.pm.PackageManager;
 import android.graphics.Typeface;
 import android.os.Build;

@@ -5,8 +5,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 
-import net.ridhoperdana.asumu.fragment.ItemHomeFragment;
-
 import java.io.FileNotFoundException;
 
 public class Scanner {
