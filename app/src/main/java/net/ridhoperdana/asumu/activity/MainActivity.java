@@ -70,8 +70,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         sessionManager = new AsumuSessionManager(this);
-
-
         user = sessionManager.getUserDetails();
         getUserDetail(user.get("user_name"));
 
@@ -191,10 +189,10 @@ public class MainActivity extends AppCompatActivity {
 //                        Log.d("response detail login: ", response.toString());
                         try {
                             JSONObject jsonObject = new JSONObject(response);
-                            if(!jsonObject.getString("penghasilan").isEmpty())
+                            if(!jsonObject.getString("penghasilan").equals("null"))
                             {
-                                penghasilan = jsonObject.getString("penghasilan");
-                                Log.d("penghasilan nol: ", jsonObject.getString("penghasilan"));
+//                                penghasilan = jsonObject.getString("penghasilan");
+                                Log.d("penghasilan nol: ", response.toString());
                             }
                             else
                             {
