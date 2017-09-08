@@ -19,4 +19,9 @@
     <color name="textHitam">#212121</color>
     <color name="backgroundAbu">#dbdbdb</color>
     <color name="AbuTua">#787878</color>
+
+    <color name="colorControlHighlight">#ffe28c</color>
+    <color name="colorButtonNormal">#FFC107</color>
+    <color name="colorControlActivated">#FFC107</color>
+    <color name="colorUnselect">#E0E0E0</color>
 </resources>

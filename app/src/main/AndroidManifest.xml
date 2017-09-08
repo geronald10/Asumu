@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="net.ridhoperdana.asumu">
 
     <uses-feature android:name="android.hardware.camera" />
@@ -10,41 +11,37 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
 
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/logo_bukahobi"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/logo_bukahobi"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
-        <meta-data android:name="com.google.android.gms.vision.DEPENDENCIES" android:value="ocr"/>
-        <activity android:name=".activity.MainActivity">
+        android:theme="@style/AppTheme"
+        tools:replace="android:icon">
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.gms.vision.DEPENDENCIES"
+            android:value="ocr" />
+
+        <activity android:name=".activity.MainActivity" />
+        <activity
+            android:name=".activity.LoginActivity"
+            android:label="@string/title_activity_login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name="net.ridhoperdana.asumu.halaman_home.HomeActivity" />
-        <activity
-            android:name="net.ridhoperdana.asumu.halaman_login.LoginSplashScreenActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:theme="@style/FullscreenTheme">
-
-        </activity>
-        <activity android:name="net.ridhoperdana.asumu.halaman_login.LoginActivity" />
-        <activity
-            android:name="net.ridhoperdana.asumu.SearchActivity"
-            android:label="Cari Komunitas" />
-        <activity
-            android:name="net.ridhoperdana.asumu.MessageActivity"
-            android:label="Daftar Pesan" />
-        <activity android:name="net.ridhoperdana.asumu.BaseActivity" />
-        <activity
-            android:name="net.ridhoperdana.asumu.ProfilActivity"
-            android:label="Profil Pengguna" />
+        <activity android:name=".activity.RegisterActivity"></activity>
     </application>
 
 </manifest>
