@@ -6,7 +6,7 @@ import android.graphics.Bitmap;
  * Created by RIDHO on 9/7/2017.
  */
 
-public class ListofTarget {
+public class ListofTargetModel {
     String targetTitle;
     String targetImageUrl;
     String targetDescription;
@@ -18,7 +18,7 @@ public class ListofTarget {
     String targetNormalExpense;
     String targetId;
 
-    public ListofTarget(String targetTitle, String targetImageUrl, String targetDescription, String targetAmount, String targetStartDate, String targetDueDate, String targetOffset, String targetStatus, String targetId) {
+    public ListofTargetModel(String targetTitle, String targetImageUrl, String targetDescription, String targetAmount, String targetStartDate, String targetDueDate, String targetOffset, String targetStatus, String targetId) {
         this.targetTitle = targetTitle;
         this.targetImageUrl = targetImageUrl;
         this.targetDescription = targetDescription;

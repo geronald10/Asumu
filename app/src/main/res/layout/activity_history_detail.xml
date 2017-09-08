@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="net.ridhoperdana.asumu.HistoryDetailActivity">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#E0E0E0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/constraintLayout2"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="0dp">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/image_target_detail"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:src="@drawable/community"
+            app:layout_constraintTop_toTopOf="parent"
+
+            android:layout_marginLeft="8dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginStart="8dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textSize="20sp"
+            android:textColor="@color/textHitam"
+            app:layout_constraintLeft_toRightOf="@+id/image_target_detail"
+            android:layout_marginLeft="8dp"
+            android:id="@+id/title_target_detail"
+            android:layout_marginStart="8dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/dummy_content"
+            android:textSize="16sp"
+            android:id="@+id/saving_target_detail"
+            app:layout_constraintLeft_toRightOf="@+id/image_target_detail"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/title_target_detail"
+            android:layout_marginStart="8dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/target_remaining"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@+id/saving_target_detail"
+            app:layout_constraintLeft_toRightOf="@+id/image_target_detail"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:id="@+id/textView5" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="200000 again"
+            android:textColor="@color/warnaUtamaMerah"
+            app:layout_constraintTop_toBottomOf="@+id/textView5"
+            app:layout_constraintLeft_toRightOf="@+id/image_target_detail"
+            android:layout_marginLeft="8dp"
+            android:textSize="16sp"
+            android:layout_marginStart="8dp"
+            android:paddingBottom="8dp"
+            android:id="@+id/textView6" />
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/not_finished"
+            android:backgroundTint="@color/warnaUtamaMerah"
+            android:layout_marginRight="16dp"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="32dp" />
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/warnaUtamaMerah"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
+        android:id="@+id/expense_button"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Expense"
+            app:layout_constraintTop_toTopOf="parent"
+            android:padding="16dp"
+            app:layout_constraintLeft_toLeftOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+
+    <net.cachapa.expandablelayout.ExpandableLayout
+        android:id="@+id/expandable_layout"
+        android:layout_width="0dp"
+        android:layout_height="300dp"
+        app:el_duration="1000"
+        app:el_expanded="false"
+        app:el_parallax="0.5"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        android:background="@color/backgroundAbu"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/expense_button">
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/chart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </net.cachapa.expandablelayout.ExpandableLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/expandable_layout"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:id="@+id/saving_button">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Saving"
+            android:padding="16dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+
+    <net.cachapa.expandablelayout.ExpandableLayout
+        android:id="@+id/expandable_layout_saving"
+        android:layout_width="0dp"
+        android:layout_height="300dp"
+        app:el_duration="1000"
+        app:el_expanded="false"
+        app:el_parallax="0.5"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        android:background="@color/backgroundAbu"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/saving_button">
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/char_saving"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </net.cachapa.expandablelayout.ExpandableLayout>
+
+</android.support.constraint.ConstraintLayout>

@@ -5,18 +5,28 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.Collections;
 import java.util.List;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * Created by RIDHO on 9/7/2017.
  */
 
-public class AdapterListHistory extends RecyclerView.Adapter<ViewHolderListHistory>{
+public class AdapterListHistory extends RecyclerView.Adapter<AdapterListHistory.ViewHolderListHistory>{
 
-    List<ListofTarget> list = Collections.emptyList();
+    List<ListofTargetModel> list = Collections.emptyList();
     Context context;
+
+    public interface ListHistoryOnClickHandler
+    {
+        void onClick(ListofTargetModel listofTargetModel);
+    }
+
+    public ListHistoryOnClickHandler listHistoryOnClickHandler;
 
     @Override
     public ViewHolderListHistory onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -27,11 +37,12 @@ public class AdapterListHistory extends RecyclerView.Adapter<ViewHolderListHisto
 
     @Override
     public void onBindViewHolder(ViewHolderListHistory holder, int position) {
-        ListofTarget listofTarget = list.get(position);
-        holder.titleTarget.setText(listofTarget.getTargetTitle());
-        holder.statusTarget.setText(listofTarget.getTargetStatus());
-        holder.savingTarget.setText(listofTarget.getTargetAmount());
+        ListofTargetModel listofTargetModel = list.get(position);
+        holder.titleTarget.setText(listofTargetModel.getTargetTitle());
+        holder.statusTarget.setText(listofTargetModel.getTargetStatus());
+        holder.savingTarget.setText(listofTargetModel.getTargetAmount());
         holder.imageTarget.setImageResource(R.drawable.community);
+
     }
 
     @Override
@@ -39,8 +50,33 @@ public class AdapterListHistory extends RecyclerView.Adapter<ViewHolderListHisto
         return list.size();
     }
 
-    public AdapterListHistory(List<ListofTarget> list, Context context) {
+    public AdapterListHistory(List<ListofTargetModel> list, Context context, ListHistoryOnClickHandler listHistoryOnClickHandler) {
         this.list = list;
         this.context = context;
+        this.listHistoryOnClickHandler = listHistoryOnClickHandler;
+    }
+
+    public class ViewHolderListHistory extends RecyclerView.ViewHolder implements View.OnClickListener{
+
+        CircleImageView imageTarget;
+        TextView titleTarget, savingTarget, statusTarget;
+
+        public ViewHolderListHistory(View itemView) {
+            super(itemView);
+            imageTarget = (CircleImageView) itemView.findViewById(R.id.image_target);
+            titleTarget = (TextView)itemView.findViewById(R.id.title_target);
+            savingTarget = (TextView)itemView.findViewById(R.id.saving_target);
+            statusTarget = (TextView)itemView.findViewById(R.id.status_target);
+
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            int adapterPosition = getAdapterPosition();
+            listHistoryOnClickHandler.onClick(list.get(adapterPosition));
+        }
     }
 }
+
+

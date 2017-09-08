@@ -1,9 +1,7 @@
 package net.ridhoperdana.asumu.fragment;
 
-import android.content.Context;
-import android.net.Uri;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -13,13 +11,15 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import net.ridhoperdana.asumu.AdapterListHistory;
-import net.ridhoperdana.asumu.ListofTarget;
+import net.ridhoperdana.asumu.HistoryDetailActivity;
+import net.ridhoperdana.asumu.ListofTargetModel;
 import net.ridhoperdana.asumu.R;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
-public class ItemHistoryFragment extends Fragment {
+public class ItemHistoryFragment extends Fragment implements AdapterListHistory.ListHistoryOnClickHandler{
 
     RecyclerView recyclerViewHistory;
     LinearLayoutManager linearLayoutManager;
@@ -41,15 +41,35 @@ public class ItemHistoryFragment extends Fragment {
         View view = layoutInflater.inflate(R.layout.fragment_item_history, container, false);
 //        return inflater.inflate(R.layout.fragment_item_history, container, false);
         recyclerViewHistory = (RecyclerView)view.findViewById(R.id.list_history);
-        List<ListofTarget> listofTargets = new ArrayList<>();
-        ListofTarget listofTarget = new ListofTarget("New Laptop", "xxxx", "Harus beli ini jangan lupa", "5000000", "2017-8-30", "2017-12-30", "0", "Not Finished", "1");
 
-        listofTargets.add(listofTarget);
-        Log.d("list of target: ", String.valueOf(listofTargets.size()));
-        AdapterListHistory adapterListHistory = new AdapterListHistory(listofTargets, getContext());
+        Random random = new Random();
+        int max=10;
+        int min=1;
+        int min_harga = 50000;
+        int max_harga = 1000000;
+        int nilai_random, harga_random;
+        List<ListofTargetModel> listofTargetModels = new ArrayList<>();
+        for (int i=0; i<10; i++)
+        {
+            harga_random = random.nextInt(max_harga - min_harga +1) + min_harga;
+            nilai_random = random.nextInt(max - min +1) +min;
+            ListofTargetModel listofTargetModel = new ListofTargetModel("New Laptop", "xxxx", "Harus beli ini jangan lupa", String.valueOf(harga_random), "2017-8-30", "2017-12-30", "0", "Not Finished", String.valueOf(nilai_random));
+            listofTargetModels.add(listofTargetModel);
+        }
+
+        Log.d("list of target: ", String.valueOf(listofTargetModels.size()));
+        AdapterListHistory adapterListHistory = new AdapterListHistory(listofTargetModels, getContext(), this);
         recyclerViewHistory.setAdapter(adapterListHistory);
         linearLayoutManager = new LinearLayoutManager(getActivity());
         recyclerViewHistory.setLayoutManager(linearLayoutManager);
         return view;
+    }
+
+    @Override
+    public void onClick(ListofTargetModel listofTargetModel) {
+        Bundle bundle = new Bundle();
+//        bundle.putString("coba", listofTargetModel.);
+        Intent intent = new Intent(getActivity(), HistoryDetailActivity.class);
+        startActivity(intent);
     }
 }
