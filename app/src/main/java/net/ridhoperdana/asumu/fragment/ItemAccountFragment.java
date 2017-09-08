@@ -26,6 +26,7 @@ import net.ridhoperdana.asumu.R;
 import net.ridhoperdana.asumu.activity.MainActivity;
 import net.ridhoperdana.asumu.utility.AsumuSessionManager;
 import net.ridhoperdana.asumu.utility.NetworkUtils;
+import net.ridhoperdana.asumu.utility.RupiahCurrencyFormat;
 import net.ridhoperdana.asumu.utility.VolleySingleton;
 
 import org.json.JSONException;
@@ -116,10 +117,16 @@ public class ItemAccountFragment extends Fragment {
                     public void onResponse(String response) {
 //                        Log.d("response detail login: ", response.toString());
                         try {
+                            RupiahCurrencyFormat rupiahCurrencyFormat = new RupiahCurrencyFormat();
                             JSONObject jsonObject = new JSONObject(response);
                             namauser.setText(jsonObject.get("nama_user").toString());
                             user_name.setText(jsonObject.get("username").toString());
-                            penghasilan.setText(jsonObject.get("penghasilan").toString());
+                            String penghasilanUser = jsonObject.get("penghasilan").toString();
+                            Log.d("penghasilan User", penghasilanUser);
+                            if (penghasilanUser.equals("null") || penghasilanUser.equals("0"))
+                                penghasilan.setText(rupiahCurrencyFormat.toRupiahFormat("0"));
+                            else
+                                penghasilan.setText(rupiahCurrencyFormat.toRupiahFormat(penghasilanUser));
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

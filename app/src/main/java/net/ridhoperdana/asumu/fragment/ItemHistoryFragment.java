@@ -14,6 +14,7 @@ import net.ridhoperdana.asumu.AdapterListHistory;
 import net.ridhoperdana.asumu.HistoryDetailActivity;
 import net.ridhoperdana.asumu.ListofTargetModel;
 import net.ridhoperdana.asumu.R;
+import net.ridhoperdana.asumu.utility.RupiahCurrencyFormat;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,9 +52,12 @@ public class ItemHistoryFragment extends Fragment implements AdapterListHistory.
         List<ListofTargetModel> listofTargetModels = new ArrayList<>();
         for (int i=0; i<10; i++)
         {
+            RupiahCurrencyFormat rupiahCurrencyFormat = new RupiahCurrencyFormat();
             harga_random = random.nextInt(max_harga - min_harga +1) + min_harga;
             nilai_random = random.nextInt(max - min +1) +min;
-            ListofTargetModel listofTargetModel = new ListofTargetModel("New Laptop", "xxxx", String.valueOf(harga_random), "2017-8-30", "2017-12-30", "0", "Not Finished", String.valueOf(i));
+            ListofTargetModel listofTargetModel = new ListofTargetModel("New Laptop", "xxxx",
+                    rupiahCurrencyFormat.toRupiahFormat(String.valueOf(harga_random)),
+                    "2017-8-30", "2017-12-30", "0", "Not Finished", String.valueOf(i));
             listofTargetModels.add(listofTargetModel);
         }
 
