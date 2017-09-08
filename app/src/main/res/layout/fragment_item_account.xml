@@ -2,151 +2,159 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="5dp"
     tools:context=".fragment.ItemAccountFragment">
 
-    <android.support.v7.widget.CardView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="5dp"
-        app:cardCornerRadius="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-        <android.support.constraint.ConstraintLayout
+        <android.support.v7.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            app:cardCornerRadius="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/ivAccount"
-                android:layout_width="152dp"
-                android:layout_height="152dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="32dp"
-                android:src="@drawable/community"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tvNamaUser"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="24dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="16dp"
-                android:gravity="center"
-                android:text="Ronald Gunawan Radityatama"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="@color/colorPrimaryText"
-                android:textSize="24sp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ivAccount" />
-
-            <TextView
-                android:id="@+id/tvEmailUser"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:gravity="center"
-                android:text="geronald10@gmail.com"
-                android:textColor="@color/colorSecondaryText"
-                android:textSize="20sp"
-                app:layout_constraintLeft_toLeftOf="@+id/tvNamaUser"
-                app:layout_constraintRight_toRightOf="@+id/tvNamaUser"
-                app:layout_constraintTop_toBottomOf="@+id/tvNamaUser" />
-
-            <ImageView
-                android:id="@+id/ivDivider"
-                android:layout_width="100dp"
-                android:layout_height="3dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:background="@color/colorPrimaryDark"
-                app:layout_constraintLeft_toLeftOf="@+id/tvNamaUser"
-                app:layout_constraintRight_toRightOf="@+id/tvNamaUser"
-                app:layout_constraintTop_toBottomOf="@+id/tvEmailUser" />
-
-            <android.support.constraint.Guideline
-                android:id="@+id/vertical_guideline"
-                android:layout_width="wrap_content"
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.29" />
+                android:paddingBottom="16dp">
 
-            <TextView
-                android:id="@+id/tvMoneyAmount"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:text="Rp. 3.000.000"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="28sp"
-                android:textStyle="bold"
-                app:layout_constraintLeft_toRightOf="@+id/vertical_guideline"
-                app:layout_constraintRight_toRightOf="@+id/tvEmailUser"
-                app:layout_constraintTop_toBottomOf="@+id/ivDivider"
-                app:layout_goneMarginTop="16dp" />
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/ivAccount"
+                    android:layout_width="152dp"
+                    android:layout_height="152dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="32dp"
+                    android:src="@drawable/community"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/ivMoneyLogo"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_marginEnd="0dp"
-                android:src="@drawable/logo_uang_asumu"
-                app:layout_constraintBottom_toBottomOf="@+id/tvMoneyAmount"
-                app:layout_constraintRight_toLeftOf="@+id/vertical_guideline"
-                app:layout_constraintTop_toTopOf="@+id/tvMoneyAmount" />
+                <TextView
+                    android:id="@+id/tvNamaUser"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center"
+                    android:text="Ronald Gunawan Radityatama"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textColor="@color/colorPrimaryText"
+                    android:textSize="24sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivAccount" />
 
-            <Button
-                android:id="@+id/btnChangeIncome"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="24dp"
-                android:text="Change Income"
-                android:textAppearance="@style/TextAppearance.AppCompat.Button"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvMoneyAmount" />
+                <TextView
+                    android:id="@+id/tvEmailUser"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center"
+                    android:text="geronald10@gmail.com"
+                    android:textColor="@color/colorSecondaryText"
+                    android:textSize="20sp"
+                    app:layout_constraintLeft_toLeftOf="@+id/tvNamaUser"
+                    app:layout_constraintRight_toRightOf="@+id/tvNamaUser"
+                    app:layout_constraintTop_toBottomOf="@+id/tvNamaUser" />
 
-            <Button
-                android:id="@+id/btnChangePassword"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:text="Change Password"
-                android:textAppearance="@style/TextAppearance.AppCompat.Button"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/btnChangeIncome" />
+                <ImageView
+                    android:id="@+id/ivDivider"
+                    android:layout_width="100dp"
+                    android:layout_height="3dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/colorPrimaryDark"
+                    app:layout_constraintLeft_toLeftOf="@+id/tvNamaUser"
+                    app:layout_constraintRight_toRightOf="@+id/tvNamaUser"
+                    app:layout_constraintTop_toBottomOf="@+id/tvEmailUser" />
 
-            <Button
-                android:id="@+id/btnLogout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="16dp"
-                android:gravity="center"
-                android:text="Logout"
-                android:textAppearance="@style/TextAppearance.AppCompat.Button"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnChangePassword" />
+                <android.support.constraint.Guideline
+                    android:id="@+id/vertical_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.29" />
 
-        </android.support.constraint.ConstraintLayout>
+                <TextView
+                    android:id="@+id/tvMoneyAmount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Rp. 3.000.000"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toRightOf="@+id/vertical_guideline"
+                    app:layout_constraintRight_toRightOf="@+id/tvEmailUser"
+                    app:layout_constraintTop_toBottomOf="@+id/ivDivider"
+                    app:layout_goneMarginTop="16dp" />
 
-    </android.support.v7.widget.CardView>
+                <ImageView
+                    android:id="@+id/ivMoneyLogo"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginEnd="0dp"
+                    android:src="@drawable/logo_uang_asumu"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvMoneyAmount"
+                    app:layout_constraintRight_toLeftOf="@+id/vertical_guideline"
+                    app:layout_constraintTop_toTopOf="@+id/tvMoneyAmount" />
+
+                <Button
+                    android:id="@+id/btnChangeIncome"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="24dp"
+                    android:text="Change Income"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Button"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvMoneyAmount" />
+
+                <Button
+                    android:id="@+id/btnChangePassword"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:text="Change Password"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Button"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btnChangeIncome" />
+
+                <Button
+                    android:id="@+id/btnLogout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center"
+                    android:text="Logout"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Button"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnChangePassword" />
+
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.v7.widget.CardView>
+
+    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>

@@ -34,4 +34,6 @@ public class ItemAccountFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
     }
+
+
 }
