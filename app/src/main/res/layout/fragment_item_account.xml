@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingBottom="5dp"
     android:background="@drawable/background"
+    android:paddingBottom="5dp"
     tools:context=".fragment.ItemAccountFragment">
 
     <ScrollView
@@ -46,7 +46,7 @@
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="16dp"
                     android:gravity="center"
-                    android:text="Ronald Gunawan Radityatama"
+                    android:text="@string/tv_empty_value"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                     android:textColor="@color/colorPrimaryText"
                     android:textSize="24sp"
@@ -60,7 +60,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:gravity="center"
-                    android:text="geronald10@gmail.com"
+                    android:text="@string/tv_empty_value"
                     android:textColor="@color/colorSecondaryText"
                     android:textSize="20sp"
                     app:layout_constraintLeft_toLeftOf="@+id/tvNamaUser"
@@ -94,7 +94,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
-                    android:text="Rp. 3.000.000"
+                    android:text="@string/tv_empty_value"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="28sp"
                     android:textStyle="bold"
@@ -145,9 +145,11 @@
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
                     android:layout_marginTop="16dp"
+                    android:backgroundTint="@android:color/holo_red_dark"
                     android:gravity="center"
                     android:text="Logout"
                     android:textAppearance="@style/TextAppearance.AppCompat.Button"
+                    android:textColor="@android:color/white"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/btnChangePassword" />

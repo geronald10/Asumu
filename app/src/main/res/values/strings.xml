@@ -41,5 +41,6 @@
     <string name="error_msg_email">email can\'t be null</string>
     <string name="error_msg_email2">ensure you have entered email format correctly</string>
     <string name="open_camera_btn_string">Open Camera</string>
+    <string name="tv_empty_value">-</string>
 
 </resources>
