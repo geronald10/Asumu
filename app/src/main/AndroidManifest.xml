@@ -50,7 +50,7 @@
         <activity android:name=".activity.AddNewTargetActivity" />
         <activity android:name=".HistoryDetailActivity" />
         <activity android:name=".ManageExpenseActivity"></activity>
-        <receiver android:name=".NotificationReceiver"/>
+        <receiver android:name=".utility.NotificationReceiver"/>
     </application>
 
 </manifest>
