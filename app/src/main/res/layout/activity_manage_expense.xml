@@ -11,74 +11,143 @@
         android:id="@+id/toolbar"
         layout="@layout/app_bar" />
 
-    <LinearLayout
-        android:id="@+id/linear_layout_parent"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
         <LinearLayout
-            android:id="@+id/input_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/input_key_daily"
-                android:layout_width="0dp"
+            <LinearLayout
+                android:id="@+id/linear_layout_parent"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_weight="0.5"
-                android:hint="Expense desc."
-                android:inputType="text"
-                android:textSize="16sp" />
+                android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/input_value_daily"
-                android:layout_width="0dp"
+                <LinearLayout
+                    android:id="@+id/input_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/input_key_daily"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_weight="0.5"
+                        android:hint="Expense desc."
+                        android:inputType="text"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/input_value_daily"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_weight=".5"
+                        android:hint="Expense Value"
+                        android:inputType="number"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_button_add_update"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_weight=".5"
-                android:hint="Expense Value"
-                android:inputType="number"
-                android:textSize="16sp" />
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
 
+                <Button
+                    android:id="@+id/update_daily_expense"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.6"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:text="Update expense"
+                    android:textColor="@android:color/white" />
+
+                <Button
+                    android:id="@+id/btnShowImageLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:backgroundTint="@color/colorPrimaryDark"
+                    android:drawableStart="@drawable/ic_camera"
+                    android:text="Capture"
+                    android:textColor="@android:color/white" />
+
+                <Button
+                    android:id="@+id/add_more_expense"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:text="Add More"
+                    android:textColor="@android:color/white" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/cameraMenuLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:visibility="gone"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="Image Captured"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:id="@+id/imgPreview"
+                    android:layout_width="240dp"
+                    android:layout_height="240dp"
+                    android:layout_marginTop="8sp"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/imgNoPreview"
+                    android:layout_width="240dp"
+                    android:layout_height="240dp"
+                    app:srcCompat="@drawable/no_image_available" />
+
+                <Button
+                    android:id="@+id/btnCapturePicture"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="@android:color/white"
+                    android:gravity="center"
+                    android:text="@string/open_camera_btn_string"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <TextView
+                    android:id="@+id/tvTextScanned"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:gravity="center"
+                    android:text="text scanned:\n"
+                    android:textColor="@color/colorPrimaryText"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
         </LinearLayout>
 
-    </LinearLayout>
+    </ScrollView>
 
-    <LinearLayout
-        android:layout_marginTop="16dp"
-        android:id="@+id/layout_button_add_update"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:orientation="horizontal">
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_weight="0.5"
-            android:layout_height="match_parent"/>
-
-        <Button
-            android:id="@+id/update_daily_expense"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:backgroundTint="@color/colorPrimary"
-            android:text="Update expense" />
-
-        <Button
-            android:id="@+id/add_more_expense"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Add More" />
-
-
-    </LinearLayout>
 
 </LinearLayout>

@@ -19,8 +19,9 @@
 
     <application
         android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/logo_bukahobi"
+        android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".activity.MainActivity">
@@ -37,6 +38,9 @@
         <receiver android:name=".NotificationReceiver" />
 
         <activity android:name=".activity.AddDefaultExpenseActivity"></activity>
+        <activity android:name=".activity.HistoryDetailActivity" />
+        <activity android:name=".activity.ManageExpenseActivity"/>
+        <receiver android:name=".utility.NotificationReceiver"/>
     </application>
 
 </manifest>
