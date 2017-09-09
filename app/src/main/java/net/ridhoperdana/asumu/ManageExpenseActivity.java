@@ -15,6 +15,7 @@ public class ManageExpenseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        View view = new View(this);
         setContentView(R.layout.activity_manage_expense);
 
         EditText keyExpense = (EditText)findViewById(R.id.input_key_daily);
