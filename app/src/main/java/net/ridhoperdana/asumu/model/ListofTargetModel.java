@@ -1,4 +1,4 @@
-package net.ridhoperdana.asumu;
+package net.ridhoperdana.asumu.model;
 
 /**
  * Created by RIDHO on 9/7/2017.

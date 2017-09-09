@@ -1,4 +1,4 @@
-package net.ridhoperdana.asumu;
+package net.ridhoperdana.asumu.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -6,6 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import net.ridhoperdana.asumu.R;
+import net.ridhoperdana.asumu.model.ListofTargetModel;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
@@ -40,11 +43,10 @@ public class AdapterListHistory extends RecyclerView.Adapter<AdapterListHistory.
 
     @Override
     public void onBindViewHolder(ViewHolderListHistory holder, int position) {
-
         ListofTargetModel listofTargetModel = list.get(position);
         holder.titleTarget.setText(listofTargetModel.getTarget_desc());
         holder.statusTarget.setText(listofTargetModel.getStatus());
-        holder.savingTarget.setText(rupiahCurrencyFormat.toRupiahFormat(listofTargetModel.getTarget_amount()));
+        holder.savingTarget.setText(listofTargetModel.getTarget_amount());
         holder.imageTarget.setImageResource(R.drawable.community);
 
     }
@@ -79,26 +81,6 @@ public class AdapterListHistory extends RecyclerView.Adapter<AdapterListHistory.
         public void onClick(View view) {
             int adapterPosition = getAdapterPosition();
             listHistoryOnClickHandler.onClick(list.get(adapterPosition));
-        }
-    }
-
-    public class RupiahCurrencyFormat {
-
-        public String toRupiahFormat(String harga) {
-            String rupiah;
-            double formatHarga = Double.parseDouble(harga);
-
-            DecimalFormat kursIndonesia = (DecimalFormat) DecimalFormat.getCurrencyInstance();
-            DecimalFormatSymbols formatRp = new DecimalFormatSymbols();
-
-            formatRp.setCurrencySymbol("Rp. ");
-            formatRp.setMonetaryDecimalSeparator(',');
-            formatRp.setGroupingSeparator('.');
-
-            kursIndonesia.setDecimalFormatSymbols(formatRp);
-
-            rupiah = kursIndonesia.format(formatHarga);
-            return rupiah;
         }
     }
 }

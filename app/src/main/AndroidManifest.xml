@@ -23,6 +23,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/logo_bukahobi"
         android:supportsRtl="true"
+        android:largeHeap="true"
         android:theme="@style/AppTheme"
         tools:replace="android:icon">
         <meta-data

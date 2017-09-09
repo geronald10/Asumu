@@ -20,14 +20,15 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 
-import net.ridhoperdana.asumu.AdapterListHistory;
-import net.ridhoperdana.asumu.HistoryDetailActivity;
-import net.ridhoperdana.asumu.ListofTargetModel;
-import net.ridhoperdana.asumu.ManageExpenseActivity;
+import net.ridhoperdana.asumu.adapter.AdapterListHistory;
+import net.ridhoperdana.asumu.model.ListofTargetModel;
+import net.ridhoperdana.asumu.activity.ManageExpenseActivity;
 import net.ridhoperdana.asumu.activity.AddNewTargetActivity;
 import net.ridhoperdana.asumu.R;
 import net.ridhoperdana.asumu.utility.AsumuSessionManager;
+import net.ridhoperdana.asumu.utility.DateUtils;
 import net.ridhoperdana.asumu.utility.NetworkUtils;
+import net.ridhoperdana.asumu.utility.RupiahCurrencyFormat;
 import net.ridhoperdana.asumu.utility.VolleySingleton;
 
 import org.json.JSONArray;
@@ -106,19 +107,25 @@ public class ItemHomeFragment extends Fragment implements View.OnClickListener{
                             listofTargetModels = new ArrayList<>();
                             for(int i=0; i<jsonArray.length(); i++)
                             {
+                                RupiahCurrencyFormat rupiahCurrencyFormat = new RupiahCurrencyFormat();
                                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                                 ListofTargetModel listofTargetModel = new ListofTargetModel(jsonObject.getString("target_desc"),
-                                        "xxxx", jsonObject.getString("target_amount"), jsonObject.getString("target_startdate"),
-                                        jsonObject.getString("target_duedate"), jsonObject.getString("offset"), jsonObject.getString("status"),
+                                        "xxxx", rupiahCurrencyFormat.toRupiahFormat(jsonObject.getString("target_amount")),
+                                        jsonObject.getString("target_startdate"), jsonObject.getString("target_duedate"),
+                                        jsonObject.getString("offset"), jsonObject.getString("status"),
                                         jsonObject.getString("id_target"));
                                 listofTargetModels.add(listofTargetModel);
                             }
-                            AdapterListHistory adapterListHistory = new AdapterListHistory(listofTargetModels, getContext(), new AdapterListHistory.ListHistoryOnClickHandler() {
+                            AdapterListHistory adapterListHistory = new AdapterListHistory(listofTargetModels,
+                                    getContext(), new AdapterListHistory.ListHistoryOnClickHandler() {
                                 @Override
                                 public void onClick(ListofTargetModel listofTargetModel) {
                                     Bundle bundle = new Bundle();
-                                    //        bundle.putString("coba", listofTargetModel.);
+                                    bundle.putString("username", sessionManager.getUserDetails().get("user_name"));
+                                    bundle.putString("targetId", listofTargetModel.getId_target());
+                                    bundle.putString("date", DateUtils.getCurrentDate(context));
                                     Intent intent = new Intent(getActivity(), ManageExpenseActivity.class);
+                                    intent.putExtras(bundle);
                                     startActivity(intent);
                                 }
                             });
