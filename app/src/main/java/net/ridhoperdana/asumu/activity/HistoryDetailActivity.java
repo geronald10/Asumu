@@ -1,4 +1,4 @@
-package net.ridhoperdana.asumu;
+package net.ridhoperdana.asumu.activity;
 
 import android.graphics.Color;
 import android.support.constraint.ConstraintLayout;
@@ -16,6 +16,7 @@ import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 
 import net.cachapa.expandablelayout.ExpandableLayout;
+import net.ridhoperdana.asumu.R;
 
 import java.util.ArrayList;
 import java.util.List;

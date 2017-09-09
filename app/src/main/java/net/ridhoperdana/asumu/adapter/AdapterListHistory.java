@@ -1,4 +1,4 @@
-package net.ridhoperdana.asumu;
+package net.ridhoperdana.asumu.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -6,6 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import net.ridhoperdana.asumu.R;
+import net.ridhoperdana.asumu.model.ListofTargetModel;
 
 import java.util.Collections;
 import java.util.List;

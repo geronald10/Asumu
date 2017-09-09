@@ -23,4 +23,7 @@ public class NetworkUtils {
     public final static String ACTIVE_TARGET =
             "http://172.20.10.3:1234/Asumu/Services/historyTarget";
 
+    public final static String HISTORY_DAILY =
+            "http://172.20.10.3:1234/Asumu/Services/newHistoryDaily";
+
 }

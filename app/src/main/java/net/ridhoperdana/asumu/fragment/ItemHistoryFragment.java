@@ -10,9 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import net.ridhoperdana.asumu.AdapterListHistory;
-import net.ridhoperdana.asumu.HistoryDetailActivity;
-import net.ridhoperdana.asumu.ListofTargetModel;
+import net.ridhoperdana.asumu.adapter.AdapterListHistory;
+import net.ridhoperdana.asumu.activity.HistoryDetailActivity;
+import net.ridhoperdana.asumu.model.ListofTargetModel;
 import net.ridhoperdana.asumu.R;
 import net.ridhoperdana.asumu.utility.RupiahCurrencyFormat;
 
