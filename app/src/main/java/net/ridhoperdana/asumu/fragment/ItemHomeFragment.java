@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -20,6 +21,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 
+import net.ridhoperdana.asumu.activity.AddDefaultExpenseActivity;
 import net.ridhoperdana.asumu.adapter.AdapterListHistory;
 import net.ridhoperdana.asumu.model.ListofTargetModel;
 import net.ridhoperdana.asumu.activity.ManageExpenseActivity;
@@ -67,6 +69,7 @@ public class ItemHomeFragment extends Fragment implements View.OnClickListener{
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_item_home, container, false);
         recyclerViewHistory = (RecyclerView)view.findViewById(R.id.list_history);
+        Button submitDefaultExpense = (Button)view.findViewById(R.id.submit_default_expense);
         sessionManager = new AsumuSessionManager(getActivity());
         user = sessionManager.getUserDetails();
         getActiveHistory(user.get("user_name"));
@@ -74,6 +77,7 @@ public class ItemHomeFragment extends Fragment implements View.OnClickListener{
 
         FloatingActionButton buttonAddTarget = (FloatingActionButton)view.findViewById(R.id.add_target_button);
         buttonAddTarget.setOnClickListener(this);
+        submitDefaultExpense.setOnClickListener(this);
         return view;
     }
 
@@ -89,6 +93,15 @@ public class ItemHomeFragment extends Fragment implements View.OnClickListener{
         {
             Log.d("berhasil", "add");
             Intent intent = new Intent(getActivity(), AddNewTargetActivity.class);
+            startActivity(intent);
+        }
+        else if(view.getId()==R.id.submit_default_expense)
+        {
+            Log.d("berhasil", "tambah expense");
+//            Bundle bundle = new Bundle();
+//            bundle.putString("username", user.get("user_name"));
+            Intent intent = new Intent(getActivity(), AddDefaultExpenseActivity.class);
+            intent.putExtra("username", user.get("user_name"));
             startActivity(intent);
         }
     }

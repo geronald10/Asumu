@@ -26,4 +26,7 @@ public class NetworkUtils {
     public final static String HISTORY_DAILY =
             "http://172.20.10.3:1234/Asumu/Services/newHistoryDaily";
 
+    public final static String ADD_DEFAULT_EXPENSE =
+            "http://172.20.10.3:1234/Asumu/Services/newPengeluaran";
+
 }

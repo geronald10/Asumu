@@ -62,7 +62,7 @@ public class ItemAchievementFragment extends Fragment {
         Log.d("hehehe", "bisa harusnya");
 
         calendar.set(Calendar.HOUR_OF_DAY, 10);
-        calendar.set(Calendar.MINUTE, 16);
+        calendar.set(Calendar.MINUTE, 55);
         calendar.set(Calendar.SECOND, 10);
 
         Intent notificationIntent = new Intent(getActivity(), NotificationReceiver.class);
@@ -71,6 +71,6 @@ public class ItemAchievementFragment extends Fragment {
                 notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         AlarmManager alarmManager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_FIFTEEN_MINUTES, notificationPendingIntent);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, notificationPendingIntent);
     }
 }

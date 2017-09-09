@@ -1,11 +1,14 @@
 package net.ridhoperdana.asumu.activity;
 
 import android.app.DatePickerDialog;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.support.design.widget.TextInputLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -23,6 +26,9 @@ import net.ridhoperdana.asumu.utility.AsumuSessionManager;
 import net.ridhoperdana.asumu.utility.NetworkUtils;
 import net.ridhoperdana.asumu.utility.VolleySingleton;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -39,19 +45,23 @@ public class AddNewTargetActivity extends AppCompatActivity{
     int normalExpense;
     AsumuSessionManager sessionManager;
     private SweetAlertDialog pDialog;
+    int penghasilan;
+    EditText endDateInput;
+    EditText valueInput, titleInput;
+    HashMap<String, String> user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_target);
         inputStartDate = (EditText)findViewById(R.id.input_target_startdate);
-        final EditText titleInput = (EditText)findViewById(R.id.input_target_title);
-        final EditText valueInput = (EditText)findViewById(R.id.input_target_value);
-        final EditText endDateInput = (EditText)findViewById(R.id.input_target_enddate);
+        titleInput = (EditText)findViewById(R.id.input_target_title);
+        valueInput = (EditText)findViewById(R.id.input_target_value);
+        endDateInput = (EditText)findViewById(R.id.input_target_enddate);
         Button submitNewTarget = (Button)findViewById(R.id.submit_new_target);
         sessionManager = new AsumuSessionManager(this);
-        final HashMap<String, String> user;
         user = sessionManager.getUserDetails();
+        getUserDetail(user.get("user_name"));
 
         inputStartDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,32 +87,7 @@ public class AddNewTargetActivity extends AppCompatActivity{
                 }
         });
 
-        endDateInput.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.d("enddate", "masuk");
-                DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                        int s = month;
-                        String a = year+"-"+(s+1)+"-"+day;
-                        endDateInput.setText(""+a);
-                        duration = dateDiff(inputStartDate.getText().toString(), endDateInput.getText().toString());
-                        normalExpense = Integer.valueOf(valueInput.getText().toString())/(int)duration;
-                        Log.d("normal expense: ", String.valueOf(normalExpense));
-                    }
-                };
 
-                Calendar c = Calendar.getInstance();
-                int mYear = c.get(Calendar.YEAR);
-                int mMonth = c.get(Calendar.MONTH);
-                int mDay = c.get(Calendar.DAY_OF_MONTH);
-
-                DatePickerDialog d = new DatePickerDialog(AddNewTargetActivity.this, dateSetListener, mYear ,
-                        mMonth, mDay);
-                d.show();
-            }
-        });
 
         submitNewTarget.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -134,6 +119,72 @@ public class AddNewTargetActivity extends AppCompatActivity{
         long diff = endDate.getTimeInMillis() - startDate.getTimeInMillis();
         long days = diff / (24 * 60 * 60 * 1000);
         return days;
+    }
+
+    private void getUserDetail(final String username) {
+        showLoading();
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET,
+                NetworkUtils.GET_USER_DETAIL+"?username="+username,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+//                        Log.d("response detail login: ", response.toString());
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            if(!jsonObject.getString("penghasilan").equals("null"))
+                            {
+                                penghasilan = Integer.valueOf(jsonObject.getString("penghasilan"));
+                                Log.d("penghasilan user:", jsonObject.getString("penghasilan"));
+                                endDateInput.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        Log.d("enddate", "masuk");
+                                        DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
+                                            @Override
+                                            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                                        int s = month;
+                                        String a = year+"-"+(s+1)+"-"+day;
+                                        endDateInput.setText(""+a);
+                                        duration = dateDiff(inputStartDate.getText().toString(), endDateInput.getText().toString());
+                                        normalExpense = Integer.valueOf(valueInput.getText().toString())/(int)duration;
+
+                                        Log.d("normal expense", String.valueOf(normalExpense));
+                                        Log.d("Selisih expense", String.valueOf(penghasilan-normalExpense));
+                                        if(penghasilan-normalExpense<0)
+                                        {
+                                            Toast.makeText(getApplicationContext(), "Rencana tidak memungkinan", Toast.LENGTH_SHORT).show();
+                                            endDateInput.setError("Target not Possible");
+                                        }
+                                            }
+                                        };
+
+                                        Calendar c = Calendar.getInstance();
+                                        int mYear = c.get(Calendar.YEAR);
+                                        int mMonth = c.get(Calendar.MONTH);
+                                        int mDay = c.get(Calendar.DAY_OF_MONTH);
+
+                                        DatePickerDialog d = new DatePickerDialog(AddNewTargetActivity.this, dateSetListener, mYear ,
+                                                mMonth, mDay);
+                                        d.show();
+                                    }
+                                });
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        pDialog.dismiss();
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+//                Log.e(TAG, "Error: " + error.getMessage());
+                Toast.makeText(getApplicationContext(),
+                        error.getMessage(), Toast.LENGTH_LONG).show();
+                showErrorResult();
+            }
+        });
+        VolleySingleton.getmInstance(getApplicationContext()).addToRequestQueue(stringRequest);
     }
 
     private void addNewTarget(final String target_desc, final String target_amount, final String target_startdate,

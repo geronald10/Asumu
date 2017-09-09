@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import net.ridhoperdana.asumu.R;
 import net.ridhoperdana.asumu.model.ListofTargetModel;
+import net.ridhoperdana.asumu.utility.RupiahCurrencyFormat;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
