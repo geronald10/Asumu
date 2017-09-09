@@ -1,5 +1,6 @@
 package net.ridhoperdana.asumu.fragment;
 
+import android.app.AlarmManager;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -9,13 +10,17 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.NotificationCompat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import net.ridhoperdana.asumu.NotificationReceiver;
 import net.ridhoperdana.asumu.R;
 import net.ridhoperdana.asumu.activity.MainActivity;
+
+import java.util.Calendar;
 
 public class ItemAchievementFragment extends Fragment {
 
@@ -52,18 +57,20 @@ public class ItemAchievementFragment extends Fragment {
     }
 
     public void sendNotification() {
-        Intent notificationIntent = new Intent(getActivity(), MainActivity.class);
-        PendingIntent notificationPendingIntent = PendingIntent.getActivity(getActivity(), NOTIFICATION_ID,
+
+        Calendar calendar = Calendar.getInstance();
+        Log.d("hehehe", "bisa harusnya");
+
+        calendar.set(Calendar.HOUR_OF_DAY, 10);
+        calendar.set(Calendar.MINUTE, 16);
+        calendar.set(Calendar.SECOND, 10);
+
+        Intent notificationIntent = new Intent(getActivity(), NotificationReceiver.class);
+
+        PendingIntent notificationPendingIntent = PendingIntent.getBroadcast(getActivity(), 100,
                 notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        NotificationCompat.Builder notifyBuilder = new NotificationCompat.Builder(getActivity())
-                .setContentTitle("Confirm your expenses!")
-                .setContentText("or It will be send automatically")
-                .setSmallIcon(R.drawable.ic_notification_logo)
-                .setContentIntent(notificationPendingIntent)
-                .setDefaults(NotificationCompat.DEFAULT_ALL);
-
-        Notification myNotification = notifyBuilder.build();
-        mNotifyManager.notify(NOTIFICATION_ID, myNotification);
+        AlarmManager alarmManager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_FIFTEEN_MINUTES, notificationPendingIntent);
     }
 }
