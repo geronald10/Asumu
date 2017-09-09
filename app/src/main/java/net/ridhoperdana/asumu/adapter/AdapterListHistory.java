@@ -10,6 +10,8 @@ import android.widget.TextView;
 import net.ridhoperdana.asumu.R;
 import net.ridhoperdana.asumu.model.ListofTargetModel;
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.Collections;
 import java.util.List;
 
@@ -23,6 +25,7 @@ public class AdapterListHistory extends RecyclerView.Adapter<AdapterListHistory.
 
     List<ListofTargetModel> list = Collections.emptyList();
     Context context;
+    RupiahCurrencyFormat rupiahCurrencyFormat = new RupiahCurrencyFormat();
 
     public interface ListHistoryOnClickHandler
     {

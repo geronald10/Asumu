@@ -15,6 +15,7 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
 
     <application
         android:allowBackup="true"
@@ -47,8 +48,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.AddNewTargetActivity" />
-        <activity android:name=".activity.HistoryDetailActivity" />
-        <activity android:name=".activity.ManageExpenseActivity"></activity>
+        <activity android:name=".HistoryDetailActivity" />
+        <activity android:name=".ManageExpenseActivity"></activity>
+        <receiver android:name=".NotificationReceiver"/>
     </application>
 
 </manifest>
