@@ -18,15 +18,11 @@ import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-/**
- * Created by RIDHO on 9/7/2017.
- */
 
 public class AdapterListHistory extends RecyclerView.Adapter<AdapterListHistory.ViewHolderListHistory>{
 
     List<ListofTargetModel> list = Collections.emptyList();
     Context context;
-    RupiahCurrencyFormat rupiahCurrencyFormat = new RupiahCurrencyFormat();
 
     public interface ListHistoryOnClickHandler
     {

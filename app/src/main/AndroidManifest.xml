@@ -48,8 +48,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.AddNewTargetActivity" />
-        <activity android:name=".HistoryDetailActivity" />
-        <activity android:name=".ManageExpenseActivity"></activity>
+        <activity android:name=".activity.HistoryDetailActivity" />
+        <activity android:name=".activity.ManageExpenseActivity"/>
         <receiver android:name=".utility.NotificationReceiver"/>
     </application>
 
