@@ -9,10 +9,7 @@ import android.graphics.Color;
 import android.graphics.Matrix;
 import android.media.ExifInterface;
 import android.net.Uri;
-import android.os.Build;
 import android.provider.MediaStore;
-import android.support.constraint.ConstraintLayout;
-import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -41,8 +38,12 @@ import com.google.android.gms.vision.text.TextRecognizer;
 import net.ridhoperdana.asumu.R;
 import net.ridhoperdana.asumu.helper.FileImageHelper;
 import net.ridhoperdana.asumu.utility.NetworkUtils;
+import net.ridhoperdana.asumu.utility.RupiahCurrencyFormat;
 import net.ridhoperdana.asumu.utility.Scanner;
 import net.ridhoperdana.asumu.utility.VolleySingleton;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -62,6 +63,7 @@ public class ManageExpenseActivity extends AppCompatActivity {
     private static final int CAMERA_CAPTURE_IMAGE_REQUEST_CODE = 100;
     public static final int MEDIA_TYPE_IMAGE = 1;
 
+    private Bundle bundle;
     private Uri fileUri;
     private ImageView imgPreview, imgNoPreview;
     private TextView textScanned;
@@ -72,6 +74,7 @@ public class ManageExpenseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_expense);
 
+        bundle = getIntent().getExtras();
         // Checking camera availability
         if (!isDeviceSupportCamera()) {
             Toast.makeText(getApplicationContext(),
@@ -141,6 +144,8 @@ public class ManageExpenseActivity extends AppCompatActivity {
         if(recognizer.isOperational()) {
             Log.d("recognizer", "can't set up the detector!");
         }
+
+        getLimitationExpanseInfo(Integer.parseInt(bundle.getString("targetId")));
     }
 
     private void addMoreItems() {
@@ -173,7 +178,6 @@ public class ManageExpenseActivity extends AppCompatActivity {
             }
         }
 
-        Bundle bundle = getIntent().getExtras();
         Log.d("bundle", String.valueOf(bundle));
         storeText(bundle.getString("username"), bundle.getString("targetId"),
                 bundle.getString("date"), edtKeyExpense, edtValueExpense);
@@ -237,6 +241,22 @@ public class ManageExpenseActivity extends AppCompatActivity {
                         public void onClick(SweetAlertDialog sweetAlertDialog) {
                             sweetAlertDialog.dismissWithAnimation();
                             finish();
+                        }
+                    })
+                    .show();
+        }
+    }
+
+    private void showSuccessLoadLimitResult() {
+        if (pDialog.isShowing()) {
+            pDialog.dismiss();
+            new SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE)
+                    .setTitleText("Success!")
+                    .setContentText("Expense loaded successfully")
+                    .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                        @Override
+                        public void onClick(SweetAlertDialog sweetAlertDialog) {
+                            sweetAlertDialog.dismissWithAnimation();
                         }
                     })
                     .show();
@@ -400,5 +420,44 @@ public class ManageExpenseActivity extends AppCompatActivity {
         matrix.postRotate(angle);
         return Bitmap.createBitmap(source, 0, 0, source.getWidth(), source.getHeight(),
                 matrix, true);
+    }
+
+    private void getLimitationExpanseInfo(final int idTarget) {
+        showLoading();
+        StringRequest stringRequest = new StringRequest(Request.Method.GET,
+                NetworkUtils.LIMIT_EXPENSE + "?id_target=" + idTarget,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            Log.d("idTarget", String.valueOf(idTarget));
+                            Log.d("response", response);
+                            JSONObject jsonObject = new JSONObject(response);
+                            RupiahCurrencyFormat convertToRupiah = new RupiahCurrencyFormat();
+
+                            TextView tvNormalExpanse = (TextView) findViewById(R.id.tvNormalExpenseLimit);
+                            TextView tvOffsetExpanse = (TextView) findViewById(R.id.tvOffsetExpense);
+
+                            Log.d("normal_expense", jsonObject.getString("normal_expense"));
+                            Log.d("offset", jsonObject.getString("offset"));
+
+                            tvNormalExpanse.setText(convertToRupiah.toRupiahFormat(jsonObject.getString("normal_expense")));
+                            tvOffsetExpanse.setText(convertToRupiah.toRupiahFormat(jsonObject.getString("offset")));
+                            showSuccessLoadLimitResult();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            showErrorResult();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e(TAG, "Error: " + error.getMessage());
+                Toast.makeText(getApplicationContext(),
+                        error.getMessage(), Toast.LENGTH_LONG).show();
+                showErrorResult();
+            }
+        });
+        VolleySingleton.getmInstance(getApplicationContext()).addToRequestQueue(stringRequest);
     }
 }

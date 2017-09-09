@@ -59,7 +59,7 @@ public class AdapterListHistory extends RecyclerView.Adapter<AdapterListHistory.
         this.listHistoryOnClickHandler = listHistoryOnClickHandler;
     }
 
-    public class ViewHolderListHistory extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public class ViewHolderListHistory extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         CircleImageView imageTarget;
         TextView titleTarget, savingTarget, statusTarget;

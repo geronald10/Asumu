@@ -3,10 +3,12 @@ package net.ridhoperdana.asumu.activity;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -32,6 +34,19 @@ public class AddDefaultExpenseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_default_income);
+
+        Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        mToolbar.setTitle("Add Default Exmpense");
+        ImageView ivLogo = (ImageView) findViewById(R.id.iv_logo_toolbar);
+        ivLogo.setVisibility(View.GONE);
+        mToolbar.setNavigationIcon(R.drawable.ic_arrow_back);
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
         final EditText inputExpense = (EditText)findViewById(R.id.input_default_expense);
         final EditText inputExpenseValue = (EditText)findViewById(R.id.input_default_expense_value);
         Button buttonSubmitExpense = (Button)findViewById(R.id.submit_default_expense);

@@ -11,6 +11,110 @@
         android:id="@+id/toolbar"
         layout="@layout/app_bar" />
 
+    <android.support.v7.widget.CardView
+        android:id="@+id/cvLimitationInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/tvBalanceInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Your Limit Balance"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                android:textColor="@color/colorSecondaryText"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/ivUnderline"
+                android:layout_width="0dp"
+                android:layout_height="3dp"
+                android:background="@color/colorPrimaryLight"
+                app:layout_constraintLeft_toLeftOf="@id/tvBalanceInfo"
+                app:layout_constraintRight_toRightOf="@id/tvBalanceInfo"
+                app:layout_constraintTop_toBottomOf="@id/tvBalanceInfo" />
+
+            <TextView
+                android:id="@+id/tvNormalExpenseLimitCaption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Normal expense:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvBalanceInfo" />
+
+            <ImageView
+                android:id="@+id/ivNormalExpenseLimitIcon"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvNormalExpenseLimit"
+                app:layout_constraintLeft_toLeftOf="@id/tvNormalExpenseLimitCaption"
+                app:layout_constraintTop_toTopOf="@+id/tvNormalExpenseLimit"
+                app:srcCompat="@drawable/logo_uang_asumu" />
+
+            <TextView
+                android:id="@+id/tvNormalExpenseLimit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/tv_empty_value"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="@color/colorPrimaryText"
+                android:textSize="24sp"
+                app:layout_constraintLeft_toRightOf="@id/ivNormalExpenseLimitIcon"
+                app:layout_constraintTop_toBottomOf="@+id/tvNormalExpenseLimitCaption" />
+
+            <TextView
+                android:id="@+id/tvOffsetExpenseCaption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Offset expense"
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="18sp"
+                app:layout_constraintLeft_toLeftOf="@id/tvNormalExpenseLimitCaption"
+                app:layout_constraintTop_toBottomOf="@id/tvNormalExpenseLimit" />
+
+            <ImageView
+                android:id="@+id/ivOffsetExpenseCaption"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="8dp"
+                android:tint="@android:color/holo_red_dark"
+                app:layout_constraintBottom_toBottomOf="@+id/tvOffsetExpense"
+                app:layout_constraintLeft_toLeftOf="@id/tvOffsetExpenseCaption"
+                app:layout_constraintTop_toTopOf="@+id/tvOffsetExpense"
+                app:srcCompat="@drawable/logo_uang_asumu" />
+
+            <TextView
+                android:id="@+id/tvOffsetExpense"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/tv_empty_value"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="@color/colorPrimaryText"
+                android:textSize="24sp"
+                app:layout_constraintLeft_toRightOf="@id/ivNormalExpenseLimitIcon"
+                app:layout_constraintTop_toBottomOf="@+id/tvOffsetExpenseCaption" />
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.CardView>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -100,8 +204,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:visibility="gone"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="gone">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -137,8 +241,8 @@
                     android:id="@+id/tvTextScanned"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
                     android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
                     android:gravity="center"
                     android:text="text scanned:\n"
                     android:textColor="@color/colorPrimaryText"

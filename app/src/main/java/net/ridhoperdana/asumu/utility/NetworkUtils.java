@@ -29,4 +29,7 @@ public class NetworkUtils {
     public final static String ADD_DEFAULT_EXPENSE =
             "http://172.20.10.3:1234/Asumu/Services/newPengeluaran";
 
+    public final static String LIMIT_EXPENSE =
+            "http://172.20.10.3:1234/Asumu/Services/Target";
+
 }

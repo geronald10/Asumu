@@ -44,7 +44,8 @@ import java.util.List;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
 
-public class ItemHomeFragment extends Fragment implements View.OnClickListener{
+public class ItemHomeFragment extends Fragment implements View.OnClickListener,
+        AdapterListHistory.ListHistoryOnClickHandler {
 
     private SweetAlertDialog pDialog;
     AsumuSessionManager sessionManager;
@@ -203,4 +204,8 @@ public class ItemHomeFragment extends Fragment implements View.OnClickListener{
         }
     }
 
+    @Override
+    public void onClick(ListofTargetModel listofTargetModel) {
+
+    }
 }
